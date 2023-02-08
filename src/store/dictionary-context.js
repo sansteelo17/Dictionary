@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 
+const favorites =
+  localStorage.getItem("favWords") !== null
+    ? JSON.parse(localStorage.getItem("favWords"))
+    : [];
+
 const DictionaryContext = React.createContext({
-  favorites: [],
+  favorites: favorites,
   addToFav: (word) => {},
   removeFromFav: (word) => {},
 });
 
 export const DictionaryProvider = (props) => {
-  const [favoriteWords, setFavoriteWords] = useState([]);
+  const [favoriteWords, setFavoriteWords] = useState(favorites);
 
   const addToFavHandler = (word) => {
     setFavoriteWords((prevState) => [...prevState, word]);
   };
+
+  localStorage.setItem("favWords", JSON.stringify(favoriteWords));
 
   const removeFromFavHandler = (word) => {
     const newFavWords = favoriteWords.filter((words) => words !== word);

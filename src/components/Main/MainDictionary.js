@@ -30,7 +30,7 @@ const MainDictionary = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen px-8 sm:px-0">
-      <h1 className="text-white text-center mt-8 text-2xl lg:text-3xl">
+      <h1 className="text-white text-center mt-8 text-2xl lg:text-3xl font-semibold">
         STEELO DICTIONARY
       </h1>
       <div className="mt-10 flex flex-col">
